@@ -1,5 +1,12 @@
 import React from "react";
 import { useLoaderData, useParams } from "react-router";
+import { addToStoredDB } from "../../utility/addToDB";
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
+
+// const MySwal = withReactContent(Swal);
+
+import { toast } from 'react-toastify';
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -18,6 +25,23 @@ const BookDetails = () => {
     review,
     totalPages,
   } = singleBook;
+
+  const handleMarkAsRead = (id) => {
+    // Store with Id
+    // Where to store
+    // array or collection
+    // if book already exist the show a alert
+    // if book not exist then push in the collection or array
+
+    // MySwal.fire({
+    //   title: "Good job!",
+    //   text: "You clicked the button!",
+    //   icon: "success",
+    // });
+
+    toast.success('Mark As Read !');
+    addToStoredDB(id);
+  };
 
   return (
     <div className="pb-[70px]">
@@ -77,7 +101,9 @@ const BookDetails = () => {
           </div>
           <div className="divider"></div>
 
-          <button className="btn mr-3">Mark As Read</button>
+          <button onClick={() => handleMarkAsRead(id)} className="btn mr-3">
+            Mark As Read
+          </button>
           <button className="btn bg-sky-600 text-white">Add To WishList</button>
         </div>
       </div>

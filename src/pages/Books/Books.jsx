@@ -2,7 +2,7 @@ import React, { Suspense, useState } from "react";
 import Book from "./Book";
 
 const Books = ({data}) => {
-  const [allBooks, setAllBooks] = useState([]);
+  // const [allBooks, setAllBooks] = useState([]);
 //   useEffect(()=>{
 //     fetch('/booksData.json')
 //     .then(res=>res.json())
